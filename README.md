@@ -50,3 +50,8 @@ FontAwesome icons throughout for visual consistency
 Responsive design with proper spacing and typography
 
 Note: This is currently a UI prototype only - all buttons, transactions, and user interactions are visual mockups without actual banking functionality or backend integration. The app demonstrates the user interface design and user experience flow for a full-featured banking application.
+
+
+<img width="150" height="250" alt="Home Screen" src="https://github.com/user-attachments/assets/f119a1a9-14d0-4b68-a58f-a3a0745261b8" />
+
+
