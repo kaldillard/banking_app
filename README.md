@@ -4,14 +4,49 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Banking App UI Summary
+This is a UI-only implementation of a modern banking application built with Flutter. The app features a clean, contemporary design focused on providing users with an intuitive financial dashboard experience.
+Key Features:
+Dashboard Overview:
 
-A few resources to get you started if this is your first Flutter project:
+Displays account balance prominently ($30,875.78)
+Currency selector (USD) with notification badge
+Quick "Add Money" functionality with a styled button
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+User Interaction:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# banking_app
+Send money feature with user avatar selection
+Quick access to frequently contacted users (Mary, Jake, Lucy, Steph)
+Intuitive send button with arrow icon
+
+Transaction History:
+
+Daily transaction summary with total spending
+Individual transaction listings showing:
+
+Company/merchant icons (Amazon, Apple)
+Transaction times
+Amount spent
+
+
+Clean list format for easy scanning
+
+Navigation:
+
+Bottom navigation bar with 4 main sections:
+
+Home (current view)
+Investment/Growth (seedling icon)
+Credit Card management
+User profile
+
+
+
+Design Highlights:
+
+Modern card-based layout with rounded corners
+Consistent color scheme using primary theme colors
+FontAwesome icons throughout for visual consistency
+Responsive design with proper spacing and typography
+
+Note: This is currently a UI prototype only - all buttons, transactions, and user interactions are visual mockups without actual banking functionality or backend integration. The app demonstrates the user interface design and user experience flow for a full-featured banking application.
