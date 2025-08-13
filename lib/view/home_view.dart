@@ -1,7 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:online_banking/components/add_money_button.dart';
+import 'package:online_banking/components/balance_widget.dart';
+import 'package:online_banking/models/transaction_item_model.dart';
 
 class HomeView extends ConsumerWidget {
   const HomeView({super.key});
@@ -12,284 +14,164 @@ class HomeView extends ConsumerWidget {
       backgroundColor: Colors.grey.shade300,
       body: Column(
         children: [
-          Container(
-            height: MediaQuery.sizeOf(context).height / 1.75,
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(40),
-                  bottomRight: Radius.circular(40)),
-            ),
-            child: SafeArea(
-              child: Column(
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            FaIcon(
-                              FontAwesomeIcons.dollarSign,
-                              size: 20,
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              "USD",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 16),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Badge(
-                              smallSize: 10,
-                              child: FaIcon(FontAwesomeIcons.bell),
-                            ),
-                            SizedBox(
-                              width: 20,
-                            ),
-                            FaIcon(FontAwesomeIcons.ellipsis),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 40,
-                  ),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      FaIcon(FontAwesomeIcons.dollarSign),
-                      SizedBox(
-                        width: 6,
-                      ),
-                      Text(
-                        "30,875",
-                        style: TextStyle(
-                            fontSize: 50, fontWeight: FontWeight.w900),
-                      ),
-                      SizedBox(
-                        width: 6,
-                      ),
-                      Text(
-                        ".78",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  OutlinedButton.icon(
-                    onPressed: () {},
-                    icon: CircleAvatar(
-                      backgroundColor: Theme.of(context).primaryColor,
-                      foregroundColor: Colors.white,
-                      radius: 8,
-                      child: const FaIcon(
-                        FontAwesomeIcons.plus,
-                        size: 8,
-                      ),
-                    ),
-                    label: const Text(
-                      "ADD MONEY",
-                      style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        FilledButton.tonal(
-                          style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(
-                                  Theme.of(context).primaryColor),
-                              shape: MaterialStateProperty.all(
-                                const CircleBorder(),
-                              ),
-                              fixedSize: MaterialStateProperty.all(
-                                  const Size.fromRadius(26))),
-                          onPressed: () {},
-                          child: const FaIcon(
-                            FontAwesomeIcons.arrowRight,
-                            color: Colors.white,
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 20,
-                        ),
-                        const Column(
-                          children: [
-                            CircleAvatar(
-                              radius: 26,
-                              backgroundImage:
-                                  NetworkImage("https://i.pravatar.cc/75"),
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            Text("Mary"),
-                          ],
-                        ),
-                        const SizedBox(
-                          width: 20,
-                        ),
-                        const Column(
-                          children: [
-                            CircleAvatar(
-                              radius: 26,
-                              backgroundImage:
-                                  NetworkImage("https://i.pravatar.cc/75"),
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            Text("Jake"),
-                          ],
-                        ),
-                        const SizedBox(
-                          width: 20,
-                        ),
-                        const Column(
-                          children: [
-                            CircleAvatar(
-                              radius: 26,
-                              backgroundImage:
-                                  NetworkImage("https://i.pravatar.cc/75"),
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            Text("Lucy"),
-                          ],
-                        ),
-                        const SizedBox(
-                          width: 20,
-                        ),
-                        const Column(
-                          children: [
-                            CircleAvatar(
-                              radius: 26,
-                              backgroundImage:
-                                  NetworkImage("https://i.pravatar.cc/75"),
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            Text("Steph"),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const Center(
-                    child: FaIcon(FontAwesomeIcons.grip),
-                  )
-                ],
-              ),
-            ),
-          ),
-          const SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
-              child: Column(
-                children: [
-                  ListTile(
-                    leading: Text(
-                      "Today",
-                      style: TextStyle(fontSize: 12),
-                    ),
-                    trailing: Text(
-                      "\$350.00",
-                      style: TextStyle(fontSize: 12),
-                    ),
-                  ),
-                  ListTile(
-                    leading: CircleAvatar(
-                      radius: 24,
-                      backgroundColor: Colors.white,
-                      child: FaIcon(FontAwesomeIcons.amazon),
-                    ),
-                    title: Text("Amazon"),
-                    subtitle: Text("5:00pm"),
-                    subtitleTextStyle: TextStyle(
-                      fontSize: 12,
-                    ),
-                    trailing: Text(
-                      "\$250.00",
-                      style: TextStyle(fontSize: 18),
-                    ),
-                  ),
-                  ListTile(
-                    leading: CircleAvatar(
-                      radius: 24,
-                      backgroundColor: Colors.white,
-                      child: FaIcon(FontAwesomeIcons.apple),
-                    ),
-                    title: Text("Apple"),
-                    subtitle: Text("4:38pm"),
-                    subtitleTextStyle: TextStyle(
-                      fontSize: 12,
-                    ),
-                    trailing: Text(
-                      "\$100.00",
-                      style: TextStyle(fontSize: 18),
-                    ),
-                  )
-                ],
-              ),
-            ),
-          )
+          _buildTopSection(context),
+          _buildTransactionsList(),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.grey.shade300,
-        type: BottomNavigationBarType.fixed,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        items: const [
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.house,
-            ),
-            label: "Home",
+      bottomNavigationBar: _buildBottomNavBar(),
+    );
+  }
+
+  Widget _buildTopSection(BuildContext context) {
+    return Container(
+      height: MediaQuery.sizeOf(context).height / 1.75,
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(40),
+          bottomRight: Radius.circular(40),
+        ),
+      ),
+      child: SafeArea(
+        child: Column(
+          children: [
+            _buildHeader(),
+            const SizedBox(height: 40),
+            BalanceWidget(),
+            const SizedBox(height: 30),
+            AddMoneyButton(),
+            const SizedBox(height: 30),
+            _buildUserAvatars(context),
+            const SizedBox(height: 20),
+            const Center(child: FaIcon(FontAwesomeIcons.grip)),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildHeader() {
+    return const Padding(
+      padding: EdgeInsets.all(10.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              FaIcon(FontAwesomeIcons.dollarSign, size: 20),
+              SizedBox(width: 10),
+              Text(
+                "USD",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              ),
+            ],
           ),
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.seedling,
-            ),
-            label: "Seedling",
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.creditCard,
-            ),
-            label: "Credit Card",
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.user,
-            ),
-            label: "User",
+          Row(
+            children: [
+              Badge(
+                smallSize: 10,
+                child: FaIcon(FontAwesomeIcons.bell),
+              ),
+              SizedBox(width: 20),
+              FaIcon(FontAwesomeIcons.ellipsis),
+            ],
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildUserAvatars(BuildContext context) {
+    final users = ["Mary", "Jake", "Lucy", "Steph"];
+
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CircleAvatar(
+            radius: 26,
+            backgroundColor: Theme.of(context).primaryColor,
+            child:
+                const FaIcon(FontAwesomeIcons.arrowRight, color: Colors.white),
+          ),
+          const SizedBox(width: 20),
+          ...users.map((name) => _buildUserAvatar(name)),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildUserAvatar(String name) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 20),
+      child: Column(
+        children: [
+          CircleAvatar(
+            radius: 26,
+            backgroundImage: NetworkImage("https://i.pravatar.cc/75?u=$name"),
+          ),
+          const SizedBox(height: 8),
+          Text(name),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildTransactionsList() {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        child: Column(
+          children: [
+            const ListTile(
+              leading: Text("Today", style: TextStyle(fontSize: 12)),
+              trailing: Text("\$350.00", style: TextStyle(fontSize: 12)),
+            ),
+            ...transactions
+                .map((transaction) => _buildTransactionTile(transaction)),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildTransactionTile(TransactionItem transaction) {
+    return ListTile(
+      leading: CircleAvatar(
+        radius: 24,
+        backgroundColor: Colors.white,
+        child: FaIcon(transaction.icon),
+      ),
+      title: Text(transaction.title),
+      subtitle: Text(transaction.time),
+      subtitleTextStyle: const TextStyle(fontSize: 12),
+      trailing: Text(
+        transaction.amount,
+        style: const TextStyle(fontSize: 18),
+      ),
+    );
+  }
+
+  Widget _buildBottomNavBar() {
+    const navItems = [
+      (FontAwesomeIcons.house, "Home"),
+      (FontAwesomeIcons.seedling, "Seedling"),
+      (FontAwesomeIcons.creditCard, "Credit Card"),
+      (FontAwesomeIcons.user, "User"),
+    ];
+
+    return BottomNavigationBar(
+      backgroundColor: Colors.grey.shade300,
+      type: BottomNavigationBarType.fixed,
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
+      items: navItems
+          .map((item) => BottomNavigationBarItem(
+                icon: FaIcon(item.$1),
+                label: item.$2,
+              ))
+          .toList(),
     );
   }
 }
